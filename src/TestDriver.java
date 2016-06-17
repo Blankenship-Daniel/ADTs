@@ -21,11 +21,7 @@ public class TestDriver {
         System.out.println();
     }
 
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
+    public static void testStack() {
         ArrayBasedStack stack = new ArrayBasedStack();
         printStackInfo(stack);
 
@@ -50,5 +46,26 @@ public class TestDriver {
         }
 
         printStackInfo(stack);
+    }
+
+    public static void testLinkedList() {
+        LinkedList list = new LinkedList();
+
+        for (int i = 0; i < 1000; i++) {
+            list.insertTail(i);
+        }
+
+        list.clear();
+
+        for (int i = 0; i < 1000; i++) {
+            list.insertHead(i);
+        }
+
+        System.out.println(list.toString());
+    }
+
+    public static void main(String[] args) {
+        //testStack();
+        testLinkedList();
     }
 }
