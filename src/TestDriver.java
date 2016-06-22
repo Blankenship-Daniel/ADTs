@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class TestDriver {
 
     public static void printStackInfo(ArrayBasedStack stack) {
@@ -64,8 +66,34 @@ public class TestDriver {
         System.out.println(list.toString());
     }
 
+    public static String reverseStr(String str) {
+        if (str.length() <= 1) {
+            return str;
+        }
+
+        return reverseStr(str.substring(1)) + str.charAt(0);
+    }
+
+    public static int[] bubbleSort(int[] unsorted) {
+        for (int i = 0; i < unsorted.length - 1; i++) {
+            for (int j = 1; j < unsorted.length - i; j++) {
+                if (unsorted[j - 1] > unsorted[j]) {
+                    int temp = unsorted[j];
+                    unsorted[j] = unsorted[j - 1];
+                    unsorted[j - 1] = temp;
+                }
+            }
+        }
+
+        return unsorted;
+    }
+
     public static void main(String[] args) {
         //testStack();
-        testLinkedList();
+        //testLinkedList();
+        //System.out.println(reverseStr("My name is Daniel Blankenship!"));
+        int[] unsorted = {1, 5, 7, 90, 2, 4, 6, 78, 3, 4, 56, 24};
+        int[] sorted = bubbleSort(unsorted);
+        System.out.println(Arrays.toString(sorted));
     }
 }
